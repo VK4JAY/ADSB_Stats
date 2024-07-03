@@ -1,0 +1,2 @@
+*/5 * * * * /usr/bin/flock -n /tmp/adsb.lockfile php /var/www/html/radar.php > /dev/null 2>&1
+*/10 * * * * /usr/bin/flock -n /tmp/maint.lockfile php /var/www/html/maintenance.php > /dev/null 2>&1
