@@ -1,4 +1,15 @@
 <?php
+
+// function to compute distance between receiver and aircraft
+function func_haversine($lat_from, $lon_from, $lat_to, $lon_to, $earth_radius = 3440) {
+    $delta_lat = deg2rad($lat_to - $lat_from);
+    $delta_lon = deg2rad($lon_to - $lon_from);
+    $a = sin($delta_lat / 2) * sin($delta_lat / 2) + cos(deg2rad($lat_from)) * cos(deg2rad($lat_to)) * sin($delta_lon / 2) * sin($delta_lon / 2);
+    $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+    return $earth_radius * $c;
+}
+
+// function to get details from adsb.lol for route details
 function getApiResponse($callsign) {
     $url = "https://api.adsb.lol/api/0/routeset";
     

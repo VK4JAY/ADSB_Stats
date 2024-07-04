@@ -144,6 +144,7 @@ try {
 
         
     // Fix DateTime entries (This looks for any entries that don't have the DateTime set and sets it based on the NOW value)
+    // This is to fix a bug that has now been resolved, but any older versions might still need the updated db entries
     // Prepare the SQL query
     $stmt = $db->prepare('SELECT * FROM flights WHERE message_date = 0');
 

@@ -38,8 +38,6 @@ try {
                                                 
                     $update = $db->prepare("UPDATE flights SET route='$route', src='$src', dst='$dst', src_country='$src_country', dst_country='$dst_country' WHERE id='$id'");
                     $update->execute();
-                }else{
-                    //echo "No Entry --> " . $flight . "<br>";
                 }
                 $x = 0;
             }

@@ -1,58 +1,25 @@
 #!/usr/bin/php
 <?php
 
-// Include route.php file which finds the route details and airport names
+// Include environment values
+include('env.php');
+
+// Include functions
 include('functions.php');
 
+// Open Database Connection
+//include('dbconnect.php');
+
+
+
 // set the rectangle and altitude to store aircraft-data in database - if your lon is negative be aware to use the right values for max and min
-$user_set_array['max_lat'] = 90.000000;    $user_set_array['min_lat'] = -90.000000;    $user_set_array['max_alt'] = 50000;
-$user_set_array['max_lon'] = 180.000000;    $user_set_array['min_lon'] = -180.000000;
-
-// set the rectangle and altitude to send alert message - if your lon is negative be aware to use the right values for max and min
-$user_set_array['alert_max_lat'] = 49.000000;    $user_set_array['alert_min_lat'] = 47.000000;    $user_set_array['alert_max_alt'] = 5000;
-$user_set_array['alert_max_lon'] = 13.000000;    $user_set_array['alert_min_lon'] = 11.000000;
-
-// set lookup-interval default is 1 (must be integer between 1 - 900) this is the frequency the script runs and writes to database or looks for alerts
-$user_set_array['sleep'] = 30;
-
-// set the maintenance period to clean the database, resolve missing flight details, and update aircraft details
-$user_set_array['maintenance'] = 600;
-
-// set your google email-address for alert-messages - if you want to use mailer.php instead gmail set method 'gmail' to 'webmail' or 'pushover' and a key according to mailer.php
-$user_set_array['alert_method'] = 'gmail'; $user_set_array['email_address'] = 'YOUR_EMAIL@gmail.com'; $user_set_array['secret_email_key'] = 'YOUR_USER_KEY';
-
-// set parameters for database connection
-//$user_set_array['db_name'] = 'adsb'; $user_set_array['db_host'] = '192.168.0.2'; $user_set_array['db_user'] = 'root'; $user_set_array['db_pass'] = '73Cr3XqZ7yQZ';
-include('dbconnect.php');
-
-// set path to aircraft.json file
-$user_set_array['url_json'] = 'http://192.168.0.252:8081/data/';
-
-// set path to your mailer.php file
-#$user_set_array['url_mailer'] = 'http://YOUR_WEBSPACE.COM/mailer.php';
-
-// set the absolute limit of alert-messages (default is 1000) this script is allowed to send over its whole runtime
-$user_set_array['mailer_limit'] = 1000;
-
-// set aircraft suspend time (default is 900) - change only if needed - time in seconds an aicraft is suspended from alert-messages after sending an alert-message for this aircraft
-$user_set_array['aircraft_suspend_time'] = 900;
-
-// set this to true if you want alerts and/or database writes from those aircrafts matching your hex_code_array.txt or flight_code_array.txt files within limited area or whole site-range, with or without wildcards
-$user_set_array['filter_mode_alert'] = false;    $user_set_array['filter_mode_alert_limited'] = false;
-$user_set_array['filter_mode_database'] = false;     $user_set_array['filter_mode_database_limited'] = false;
-$user_set_array['filter_mode_wildcard'] = false;
-
-// set path to your hex_code_array.txt and flight_code_array.txt files
-$user_set_array['hex_file_path'] = '/home/pi/hex_code_array.txt';
-$user_set_array['flight_file_path'] = '/home/pi/flight_code_array.txt';
-
-// set your timezone see http://php.net/manual/en/timezones.php
-$user_set_array['time_zone'] = 'Australia/Brisbane';
+//$user_set_array['max_lat'] = 90.000000;    $user_set_array['min_lat'] = -90.000000;    $user_set_array['max_alt'] = 50000;
+//$user_set_array['max_lon'] = 180.000000;    $user_set_array['min_lon'] = -180.000000;
 
 
 
 // wildcard search function for external filter data
-function func_wildcard_search($code, $user_code_array, $wildcard_mode) {
+/*function func_wildcard_search($code, $user_code_array, $wildcard_mode) {
         $match = false;
         $code = strtoupper($code);
         if ($wildcard_mode) {
@@ -65,15 +32,8 @@ function func_wildcard_search($code, $user_code_array, $wildcard_mode) {
         }
         return $match;
 }
+*/
 
-// function to compute distance between receiver and aircraft
-function func_haversine($lat_from, $lon_from, $lat_to, $lon_to, $earth_radius = 3440) {
-    $delta_lat = deg2rad($lat_to - $lat_from);
-    $delta_lon = deg2rad($lon_to - $lon_from);
-    $a = sin($delta_lat / 2) * sin($delta_lat / 2) + cos(deg2rad($lat_from)) * cos(deg2rad($lat_to)) * sin($delta_lon / 2) * sin($delta_lon / 2);
-    $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-    return $earth_radius * $c;
-}
 
 $i = 0;
 $alert_message = '';
@@ -88,7 +48,7 @@ $json_receiver_location = json_decode(file_get_contents($user_set_array['url_jso
 isset($json_receiver_location['lat']) ? $rec_lat = $json_receiver_location['lat'] : $rec_lat = 0;
 isset($json_receiver_location['lon']) ? $rec_lon = $json_receiver_location['lon'] : $rec_lon = 0;
 
-// create array to prevent less api queries for route information
+// create array to prevent less api queries for route information, and less database queries
 $flight_array = array();
 
 while (true) {
@@ -363,8 +323,7 @@ while (true) {
                 $current_flights[] = $new_flight;
 
 
-                // generate sql insert statement per aircraft in range of user set altitude/latitude/longitude and optionally according only to hex or flight numbers in hex_code_array.txt and flight_code_array.txt
-                #var_dump($hex_code_array); var_dump($flight_code_array); // show arrays for debug
+                
                 if ($insert_db === true ) {
                     $sql .= "INSERT INTO flights (id, message_date, now, hex, flight, reg, route, src, dst, src_country, dst_country, distance, shortest_distance, largest_distance, altitude, 
                         lowest, highest, lat, lon, track, speed, slowest, fastest, vert_rate, category, squawk, messages, flags, ws, ws_low, ws_high, oat, tat, roll, roll_left, roll_right) ";

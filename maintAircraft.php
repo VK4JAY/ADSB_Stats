@@ -23,9 +23,6 @@ while ($row = $stmt->fetch()) {
     $count = $stmt2->fetchColumn();
     
     if($count == 0){
-        
-        // Uncomment for testing
-        // echo "New --> ". $callsign ."<br>";
 
         // Maintain Rate Limits from adsbdb.com
         if (is_int($new / 500) && $new != 0){
@@ -84,10 +81,7 @@ while ($row = $stmt->fetch()) {
             $new++;
         }
     }else{
-        
-        // Uncomment for testing
-        // echo "Old --> ". $callsign ."<br>";
-        
+
         // Create SQL UPDATE to update seen count
         $sql2 = "UPDATE aircraft SET seen='$seen' WHERE registration='$callsign'";
         

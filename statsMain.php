@@ -85,7 +85,9 @@ try {
 
 include('statsLast7days.php');
 echo "<br>";
+echo "placeholder starts here";
 include('mapsDomestic.php');
+echo "<br> placholder ends here";
 
 ?>
 

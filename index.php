@@ -30,6 +30,7 @@
                 <li><a href="#airplane-types" onclick="handleMenuClick(this,'/statsTopAircraftTypes.php')">Airplanes Types</a></li>
                 <li><a href="#aircraft-manufacturer" onclick="handleMenuClick(this,'/statsTopAircraftManufacturer.php')">Aircraft Manufacturer</a></li>
                 <li><a href="#airlines" onclick="handleMenuClick(this,'/statsTopSeenAirlines.php?sortBy=total_seen&sortDirection=DESC&arrow=total_down')">Airlines</a></li>
+                <li><a href="#military" onclick="handleMenuClick(this,'/statsMostSeenMilitary.php')">Military Aircraft</a></li>
                 <li><a href="#countries" onclick="handleMenuClick(this,'/statsTopCountries.php')">Countries</a></li>
             </ul>
         </div>
