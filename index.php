@@ -44,7 +44,7 @@
     </div>
 
     <footer>
-        <p>Copyright &copy; 2024 Your Website Name</p>
+        <p>Copyright &copy; 2024 <a href='vk4jay.com'>https://VK4JAY.com</a></p>
     </footer>
 
     <script>
