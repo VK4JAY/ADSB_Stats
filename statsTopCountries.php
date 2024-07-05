@@ -1,5 +1,6 @@
 <?php 
-$user_set_array['db_name'] = 'adsb'; $user_set_array['db_host'] = '192.168.0.2'; $user_set_array['db_user'] = 'root'; $user_set_array['db_pass'] = '73Cr3XqZ7yQZ';
+// Get DB information
+include_once('dbconnect.php');
 
 // Create a new table showing the most popular flights ?>
 <table>

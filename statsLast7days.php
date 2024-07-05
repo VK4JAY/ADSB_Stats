@@ -35,9 +35,7 @@ $international_previous = '';
     // Output the results
     $x=1;
     foreach ($results as $row) {
-  
-        //echo "Date: " . $row["flight_day"]. " - Total Flights: " . $row["total_flights"]. " - Domestic Flights: " . $row["domestic_flights"]. " - International Flights: " . $row["international_flights"]. "<br>";
-
+         
         if($x == 1){ // First one doesn't need a comma space in front (102, 98, 65)
             
             $dates .= "'" . $row["flight_day"] . "'";

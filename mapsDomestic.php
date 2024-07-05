@@ -3,12 +3,6 @@
 include_once('dbconnect.php');
 include_once('env.php');
 include('mapsDomesticGenerate.php');
-
-
-// Create connection
-//$db = new PDO('mysql:host=' . $user_set_array['db_host'] . ';dbname=' . $user_set_array['db_name'] . '', $user_set_array['db_user'], $user_set_array['db_pass']);
-//$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 ?>
 
 <html>
@@ -121,14 +115,10 @@ include('mapsDomesticGenerate.php');
         ];
     }
 
-    //const brisbanePoint = chart.get('Brisbane'),
-    //    lerwickPoint = chart.get('Lerwick');
-
-    //const BrisbanePoint = chart.get("Brisbane"), SydneyPoint = chart.get("Sydney"), DarwinPoint = chart.get("Darwin"), MelbournePoint = chart.get("Melbourne"), MackayPoint = chart.get("Mackay"), AdelaidePoint = chart.get("Adelaide"), GoldCoastPoint = chart.get("Gold Coast"), WilliamtownPoint = chart.get("Williamtown"), PerthPoint = chart.get("Perth"), CanberraPoint = chart.get("Canberra"), MaroochydorePoint = chart.get("Maroochydore"), HamiltonIslandPoint = chart.get("Hamilton Island"), CairnsPoint = chart.get("Cairns"), TownsvillePoint = chart.get("Townsville"), KarrathaPoint = chart.get("Karratha"), HobartPoint = chart.get("Hobart"), MilduraPoint = chart.get("Mildura"), LismorePoint = chart.get("Lismore"), DubboPoint = chart.get("Dubbo"), EmeraldPoint = chart.get("Emerald"); 
     
     <?php echo $source_airports; ?>
 
-    // Add a series of lines for London
+    // Add a series of lines for Brisbane
     chart.addSeries({
         name: 'Brisbane flight routes',
         type: 'mapline',

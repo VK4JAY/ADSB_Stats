@@ -7,10 +7,6 @@ include('env.php');
 // Include functions
 include('functions.php');
 
-// Open Database Connection
-//include('dbconnect.php');
-
-
 
 // set the rectangle and altitude to store aircraft-data in database - if your lon is negative be aware to use the right values for max and min
 //$user_set_array['max_lat'] = 90.000000;    $user_set_array['min_lat'] = -90.000000;    $user_set_array['max_alt'] = 50000;

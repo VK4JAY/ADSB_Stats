@@ -103,21 +103,15 @@ try {
     
     $arrayNames = array_keys($routes_array);
     $arrayCount = count($arrayNames);
-    //echo "<br> The names of the top-level arrays are: " . implode(", ", $arrayNames) . "\n";
-    //echo "<br> The number of top-level arrays is: " . $arrayCount;
-
-    
+      
     if (isset($routes_array[$localAirport])) {
         $local_routes = json_encode($routes_array[$localAirport], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $local_routes = str_replace('"pointsToPath(', 'pointsToPath(', $local_routes);
         $local_routes = str_replace(')"', ')', $local_routes);
-                
-        //echo "\nbne_routes: {$local_routes}";
     } 
 
     // Prepare the output string
     $output = "data: {$airport_list},\nsource_airports_js: {$source_airports},\nroutes: {$routes_output}";
-
 
     // Remove quotes around pointsToPath
     $output = str_replace('"pointsToPath(', 'pointsToPath(', $output);
@@ -125,14 +119,8 @@ try {
     
     $airport_list = str_replace('"pointsToPath(', 'pointsToPath(', $airport_list);
     $airport_list = str_replace(')"', ')', $airport_list);
+
     
-
-/************************* */
-//echo "\n \n \n" . $airport_list;
-//echo "\n \n \n" . $source_airports;
-//echo "\n \n \n" . $routes_output;
-
-
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
