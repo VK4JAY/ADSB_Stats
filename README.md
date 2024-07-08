@@ -49,18 +49,18 @@ The application was designed and tested using MariaDB but could be easily adapte
 
   Step 1: Edit the env.php (or use a .env file if using Docker) file for your database settings and location of aircraft.json file
 
-| Environment Variable                       | Details                                 | Default      |
-| ------------------------------------------ | --------------------------------------- | ------------ |
-| `$user_set_array['sleep'] = ;`           | How often to loop the radar.php file    | 30 Seconds   |         
-| `$user_set_array['maintenance'] = ;`    | How often to run the maintenance file   | 600 Seconds  |
-| `$user_set_arry['db_name'] = ' ';`   | Database Name                                  | 'adsb'         |
-| `$user_set_arry['db_host'] = ' ';`                      | IP Address of Database        | '127.0.0.1'    |
-| `$user_set_arry['db_user'] = ' ';`                          | Database Username       | 'root'         |
-| `$user_set_arry['db_pass'] = ' ';`                          | Database Password       | '123456'       |
-| `$user_set_array['url_json'] = ' ';`  | URL to the aircraft.json file in the format http://{IP_ADDRESS}/data/       |              |
-| `$user_set_array['time_zone'] = ' ';`                      | Timezone       | 'Australia/Brisbane' |
-| `$localAirport = ' ';`                                                    | Your local airport, used to create maps | 'BNE' |
-| `$userCountry = ' ';`                                                      | Your country code, used to determine domestic and international flights  | 'AU'  |
+| Environment Variable                       | Details                                                                  | Default               |
+| ------------------------------------------ | ------------------------------------------------------------------------ | --------------------- |
+| `$user_set_array['sleep'] = ;`             | How often to loop the radar.php file                                     | 30 Seconds            |         
+| `$user_set_array['maintenance'] = ;`       | How often to run the maintenance file                                    | 600 Seconds           |
+| `$user_set_arry['db_name'] = ' ';`         | Database Name                                                            | 'adsb'                |
+| `$user_set_arry['db_host'] = ' ';`         | IP Address of Database                                                   | '127.0.0.1'           |
+| `$user_set_arry['db_user'] = ' ';`         | Database Username                                                        | 'root'                |
+| `$user_set_arry['db_pass'] = ' ';`         | Database Password                                                        | '123456'              |
+| `$user_set_array['url_json'] = ' ';`       | URL to the aircraft.json file in the format http://{IP_ADDRESS}/data/    |                       |
+| `$user_set_array['time_zone'] = ' ';`      | Timezone                                                                 | 'Australia/Brisbane'  |
+| `$localAirport = ' ';`                     | Your local airport, used to create maps                                  | 'BNE'                 |
+| `$userCountry = ' ';`                      | Your country code, used to determine domestic and international flights  | 'AU'                  |
  
 Step 2: Configure the cron to run as often as you prefer
 
