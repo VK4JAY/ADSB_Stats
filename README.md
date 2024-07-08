@@ -53,14 +53,14 @@ The application was designed and tested using MariaDB but could be easily adapte
 | ------------------------------------------ | --------------------------------------- | ------------ |
 | `$user_set_array['sleep'] = 30;`           | How often to loop the radar.php file    | 30 Seconds   |         
 | `$user_set_array['maintenance'] = 600;`    | How often to run the maintenance file   | 600 Seconds  |
-| `$user_set_arry['db_name'] = 'database_name';`   |                                   | adsb         |
-| `$user_set_arry['db_host'] = 'IP of database server';`                      |        | 127.0.0.1    |
-| `$user_set_arry['db_user'] = 'Database username';`                          |        | root         |
-| `$user_set_arry['db_pass'] = 'Database password';`                          |        | 123456       |
-| `$user_set_array['url_json'] = 'http://the_path_to_your_adsb_node/data/';`  |        |              |
-| `$user_set_array['time_zone'] = 'Australia/Brisbane';`                      |        | Australia/Brisbane |
-| `$localAirport = 'BNE';`                                                    | Your local airport, used to create maps | BNE |
-| `$userCountry = 'AU';`                                                      | Your country code, used to determine domestic and international flights  | AU  |
+| `$user_set_arry['db_name'] = 'database_name';`   | Database Name                                  | 'adsb'         |
+| `$user_set_arry['db_host'] = 'IP of database server';`                      | IP Address of Database        | '127.0.0.1'    |
+| `$user_set_arry['db_user'] = 'Database username';`                          | Database Username       | 'root'         |
+| `$user_set_arry['db_pass'] = 'Database password';`                          | Database Password       | '123456'       |
+| `$user_set_array['url_json'] = ' ';`  | URL to the aircraft.json file in the format http://{IP_ADDRESS}/data/       |              |
+| `$user_set_array['time_zone'] = ' ';`                      | Timezone       | 'Australia/Brisbane' |
+| `$localAirport = ' ';`                                                    | Your local airport, used to create maps | 'BNE' |
+| `$userCountry = ' ';`                                                      | Your country code, used to determine domestic and international flights  | 'AU'  |
  
 Step 2: Configure the cron to run as often as you prefer
 
