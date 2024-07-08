@@ -51,12 +51,12 @@ The application was designed and tested using MariaDB but could be easily adapte
 
 | Environment Variable                       | Details                                 | Default      |
 | ------------------------------------------ | --------------------------------------- | ------------ |
-| `$user_set_array['sleep'] = 30;`           | How often to loop the radar.php file    | 30 Seconds   |         
-| `$user_set_array['maintenance'] = 600;`    | How often to run the maintenance file   | 600 Seconds  |
-| `$user_set_arry['db_name'] = 'database_name';`   | Database Name                                  | 'adsb'         |
-| `$user_set_arry['db_host'] = 'IP of database server';`                      | IP Address of Database        | '127.0.0.1'    |
-| `$user_set_arry['db_user'] = 'Database username';`                          | Database Username       | 'root'         |
-| `$user_set_arry['db_pass'] = 'Database password';`                          | Database Password       | '123456'       |
+| `$user_set_array['sleep'] = ;`           | How often to loop the radar.php file    | 30 Seconds   |         
+| `$user_set_array['maintenance'] = ;`    | How often to run the maintenance file   | 600 Seconds  |
+| `$user_set_arry['db_name'] = ' ';`   | Database Name                                  | 'adsb'         |
+| `$user_set_arry['db_host'] = ' ';`                      | IP Address of Database        | '127.0.0.1'    |
+| `$user_set_arry['db_user'] = ' ';`                          | Database Username       | 'root'         |
+| `$user_set_arry['db_pass'] = ' ';`                          | Database Password       | '123456'       |
 | `$user_set_array['url_json'] = ' ';`  | URL to the aircraft.json file in the format http://{IP_ADDRESS}/data/       |              |
 | `$user_set_array['time_zone'] = ' ';`                      | Timezone       | 'Australia/Brisbane' |
 | `$localAirport = ' ';`                                                    | Your local airport, used to create maps | 'BNE' |
